@@ -28,8 +28,7 @@ public class EvenGame {
         while(isSuccessfulRound) {
 
             var newNumber = randomGenerator.generateNextNumber();
-            var isNumberEven = isEven(newNumber);
-            var correctAnswer = isNumberEven() ? "yes" : "no";
+            var correctAnswer = isEven(newNumber) ? "yes" : "no";
 
             var userAnswer = scanner.nextLine();
             var isCorrectAnswer = userAnswer.equals(correctAnswer);
@@ -41,7 +40,7 @@ public class EvenGame {
                 isGameOver = currentRoundsCount == roundsCount;
 
                 if (isGameOver) {
-                    congratulate(name)
+                    congratulate(name);
                 }
 
             } else {
@@ -56,19 +55,23 @@ public class EvenGame {
 
     }
 
-    public boolean isEven(int number) {
+    public static boolean isEven(int number) {
         // Проверяем, является ли число четным
         // Число является четным если делиться на 2 без остатка
         return number % 2 == 0;
     }
 
-    public void tellCorrect() {
+    public static void tellCorrect() {
         System.out.println("Correct!");
     }
 
-    public void tellIncorrect(String userName, String userAnswer, String correctAnswer) {
+    public static void tellIncorrect(String userName, String userAnswer, String correctAnswer) {
         System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
         System.out.println("Let's try again, " + userName + "!");
+    }
+
+    public static void congratulate(String userName) {
+        System.out.println("Congratulations, " + userName + "!");
     }
 
 }
