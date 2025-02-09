@@ -4,6 +4,8 @@ import hexlet.code.Greeting;
 import hexlet.code.User;
 
 import java.util.Scanner;
+
+import static hexlet.code.evenGame.RandomGenerator.generateRandomNumber;
 // import hexlet.code.evenGame.RandomGenerator;
 
 public class EvenGame {
@@ -12,35 +14,47 @@ public class EvenGame {
 
         var user = new User();
         Greeting.greet(user);
-
         var name = user.getName();
 
         var scanner = new Scanner(System.in);
-        var randomGenerator = new RandomGenerator(117);
 
+        // Количество раундов в в одной игре
         var roundsCount = 3;
+
+        // Закончена ли игра. Игра считается законченной, если успешно прошло roundsCount раундов
         var isGameOver = false;
+
+        // Счетчик раундов
         var currentRoundsCount = 0;
 
-        var isSuccessfulRound = true;
-        while (isSuccessfulRound && !isGameOver) {
+        // Максимальное случайное число
+        var limit = 275;
 
-            var newNumber = randomGenerator.generateNextNumber();
-            System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+
+        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+
+        while (!isGameOver) {
+
+            // Получаем случайное число
+            var newNumber = generateRandomNumber(limit);
+            // Узнаем правильный ответ
             var correctAnswer = isEven(newNumber) ? "yes" : "no";
             System.out.println("Question: " + newNumber);
-
+            // Получаем ответ пользователя
             var userAnswer = scanner.nextLine();
+            // Проверяем, совпадает ли ответ пользователя с правильным ответов
             var isCorrectAnswer = userAnswer.equals(correctAnswer);
 
-
-
             if (isCorrectAnswer) {
-
+                // Если пользователь ответил верно,
+                // то сообщаем пользователю об этом
                 tellCorrect();
+                // Увеличиваем счетчик пройденных раундов
                 currentRoundsCount++;
+                // Проверяем, является ли текущий раунд финальным
                 isGameOver = currentRoundsCount == roundsCount;
-
+                // Если пройденный раунд был финальным,
+                // поздравляем пользователя с успешно пройденной игрой!
                 if (isGameOver) {
                     congratulate(name);
                 }
@@ -48,7 +62,7 @@ public class EvenGame {
             } else {
 
                 tellIncorrect(name, userAnswer, correctAnswer);
-                isSuccessfulRound = false;
+                isGameOver = true;
 
             }
 
