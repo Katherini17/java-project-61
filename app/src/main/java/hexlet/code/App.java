@@ -2,7 +2,7 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-import static hexlet.code.Greeting.greeting;
+import static hexlet.code.Greeting.welcome;
 
 public class App {
 
@@ -19,7 +19,7 @@ public class App {
             case 0:
                 break;
             case 1:
-                greeting();
+                welcome();
                 break;
             default:
                 System.out.println("Incorrect choice");

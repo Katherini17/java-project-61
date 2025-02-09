@@ -51,8 +51,13 @@ public class EvenGame {
         return number % 2 == 0;
     }
 
-    public void tellCorrect(String userAnswer, String correctAnswer) {
+    public void tellCorrect() {
         System.out.println("Correct!");
+    }
+
+    public void tellIncorrect(String userAnswer, String correctAnswer) {
+        System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
+        System.out.println("Let's try again, " +  +"!");
     }
 
 }
