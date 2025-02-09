@@ -1,5 +1,7 @@
 package hexlet.code.evenGame;
 
+import hexlet.code.User;
+
 import java.util.Scanner;
 // import hexlet.code.evenGame.RandomGenerator;
 
@@ -7,8 +9,17 @@ public class EvenGame {
 
     public static void playEvenGame() {
 
+        var user = new User();
+        user.sendWelcomMessag();
+        user.setName();
+        user.sendGreetingMessag();
+
+        var name = user.getName();
+
+
         var scanner = new Scanner(System.in);
         var randomGenerator = new RandomGenerator(117);
+
         var roundsCount = 3;
         var isGameOver = false;
         var currentRoundsCount = 0;
@@ -30,12 +41,12 @@ public class EvenGame {
                 isGameOver = currentRoundsCount == roundsCount;
 
                 if (isGameOver) {
-                    congratulate()
+                    congratulate(name)
                 }
 
             } else {
 
-                tellIncorrect(userAnswer, correctAnswer);
+                tellIncorrect(name, userAnswer, correctAnswer);
                 isCorrectAnswer = false;
                 randomGenerator.reset();
 
@@ -55,9 +66,9 @@ public class EvenGame {
         System.out.println("Correct!");
     }
 
-    public void tellIncorrect(String userAnswer, String correctAnswer) {
+    public void tellIncorrect(String userName, String userAnswer, String correctAnswer) {
         System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-        System.out.println("Let's try again, " +  +"!");
+        System.out.println("Let's try again, " + userName + "!");
     }
 
 }
