@@ -8,6 +8,7 @@ public class User {
 
     public void setName() {
         var scanner = new Scanner(System.in);
+        System.out.print("May I have your name? ");
         var userName = scanner.nextLine();
         this.name = userName;
     }
