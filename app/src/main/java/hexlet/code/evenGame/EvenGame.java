@@ -1,6 +1,7 @@
-package hexlet.code;
+package hexlet.code.evenGame;
 
 import java.util.Scanner;
+// import hexlet.code.evenGame.RandomGenerator;
 
 public class EvenGame {
 
@@ -16,7 +17,7 @@ public class EvenGame {
         while(isSuccessfulRound) {
 
             var newNumber = randomGenerator.generateNextNumber();
-            var isNumberEven = isEven();
+            var isNumberEven = isEven(newNumber);
             var correctAnswer = isNumberEven() ? "yes" : "no";
 
             var userAnswer = scanner.nextLine();
@@ -36,14 +37,20 @@ public class EvenGame {
 
                 tellIncorrect(String userAnswer, String correctAnswer);
                 isCorrectAnswer = false;
+                randomGenerator.reset();
 
             }
 
         }
 
-
-
-
     }
+
+    public boolean isEven(int number) {
+        // Проверяем, является ли число четным
+        // Число является четным если делиться на 2 без остатка
+        return number % 2 == 0;
+    }
+
+
 
 }
