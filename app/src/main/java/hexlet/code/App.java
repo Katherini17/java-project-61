@@ -21,9 +21,7 @@ public class App {
                 break;
             case 1:
                 var user = new User();
-                user.sendWelcomMessag();
-                user.setName();
-                user.sendGreetingMessag();
+                Greeting.greet(user);
                 break;
             case 2:
                 EvenGame.playEvenGame();

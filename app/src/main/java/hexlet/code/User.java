@@ -22,7 +22,7 @@ public class User {
     }
 
     public void sendGreetingMessag() {
-        System.out.println("Hello, " + name + "'");
+        System.out.println("Hello, " + name + "!");
     }
 
 }
