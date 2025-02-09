@@ -7,7 +7,7 @@ public class EvenGame {
 
     public static void playEvenGame() {
 
-        var Scanner = new Scanner(System.in);
+        var scanner = new Scanner(System.in);
         var randomGenerator = new RandomGenerator(117);
         var roundsCount = 3;
         var isGameOver = false;
@@ -21,7 +21,7 @@ public class EvenGame {
             var correctAnswer = isNumberEven() ? "yes" : "no";
 
             var userAnswer = scanner.nextLine();
-            var isCorrectAnswer = userAnswer == correctAnswer;
+            var isCorrectAnswer = userAnswer.equals(correctAnswer);
 
             if (isCorrectAnswer && !isGameOver) {
 
@@ -35,7 +35,7 @@ public class EvenGame {
 
             } else {
 
-                tellIncorrect(String userAnswer, String correctAnswer);
+                tellIncorrect(userAnswer, correctAnswer);
                 isCorrectAnswer = false;
                 randomGenerator.reset();
 
@@ -51,6 +51,8 @@ public class EvenGame {
         return number % 2 == 0;
     }
 
-
+    public void tellCorrect(String userAnswer, String correctAnswer) {
+        System.out.println("Correct!");
+    }
 
 }
