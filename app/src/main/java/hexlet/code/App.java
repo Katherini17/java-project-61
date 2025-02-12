@@ -1,7 +1,6 @@
 package hexlet.code;
 
 import hexlet.code.games.EvenGame;
-
 import java.util.Scanner;
 
 public class App {
@@ -20,19 +19,18 @@ public class App {
             case 0:
                 break;
             case 1:
-                var user = new User();
-                Engine.greet(user);
+                Engine.sendWelcomeMessage();
+                var name = Engine.askUserName(scanner);
+                Engine.sendGreetingByNameMessage(name);
                 break;
             case 2:
-                var evenGame = new EvenGame(scanner);
-                evenGame.play();
+                EvenGame.play(scanner);
                 break;
             default:
                 System.out.println("Incorrect choice");
         }
 
         scanner.close();
-
     }
 
 }
