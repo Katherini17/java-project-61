@@ -1,11 +1,11 @@
-package hexlet.code.evenGame;
+package hexlet.code.games;
 
 import hexlet.code.Greeting;
 import hexlet.code.User;
 
 import java.util.Scanner;
 
-import static hexlet.code.evenGame.RandomGenerator.generateRandomNumber;
+import static hexlet.code.games.RandomGenerator.generateRandomNumber;
 // import hexlet.code.evenGame.RandomGenerator;
 
 public class EvenGame {
@@ -48,7 +48,7 @@ public class EvenGame {
             if (isCorrectAnswer) {
                 // Если пользователь ответил верно,
                 // то сообщаем пользователю об этом
-                tellCorrect();
+                user.tellCorrect();
                 // Увеличиваем счетчик пройденных раундов
                 currentRoundsCount++;
                 // Проверяем, является ли текущий раунд финальным
@@ -56,12 +56,12 @@ public class EvenGame {
                 // Если пройденный раунд был финальным,
                 // поздравляем пользователя с успешно пройденной игрой!
                 if (isGameOver) {
-                    congratulate(name);
+                    user.congratulate();
                 }
 
             } else {
 
-                tellIncorrect(name, userAnswer, correctAnswer);
+                user.tellIncorrect(userAnswer, correctAnswer);
                 isGameOver = true;
 
             }
@@ -74,19 +74,6 @@ public class EvenGame {
         // Проверяем, является ли число четным
         // Число является четным если делиться на 2 без остатка
         return number % 2 == 0;
-    }
-
-    public static void tellCorrect() {
-        System.out.println("Correct!");
-    }
-
-    public static void tellIncorrect(String userName, String userAnswer, String correctAnswer) {
-        System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-        System.out.println("Let's try again, " + userName + "!");
-    }
-
-    public static void congratulate(String userName) {
-        System.out.println("Congratulations, " + userName + "!");
     }
 
 }

@@ -25,4 +25,17 @@ public class User {
         System.out.println("Hello, " + name + "!");
     }
 
+    public void tellCorrect() {
+        System.out.println("Correct!");
+    }
+
+    public void tellIncorrect(String userAnswer, String correctAnswer) {
+        System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
+        System.out.println("Let's try again, " + name + "!");
+    }
+
+    public void congratulate() {
+        System.out.println("Congratulations, " + name + "!");
+    }
+
 }
