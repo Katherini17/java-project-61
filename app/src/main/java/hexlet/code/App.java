@@ -14,17 +14,18 @@ public class App {
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
 
-        var choice = scanner.nextInt();
+        var choice = Integer.parseInt(scanner.nextLine());
 
         switch (choice) {
             case 0:
                 break;
             case 1:
                 var user = new User();
-                Greeting.greet(user);
+                Engine.greet(user);
                 break;
             case 2:
-                EvenGame.playEvenGame();
+                var evenGame = new EvenGame(scanner);
+                evenGame.play();
                 break;
             default:
                 System.out.println("Incorrect choice");
