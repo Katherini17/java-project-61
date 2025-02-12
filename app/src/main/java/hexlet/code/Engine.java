@@ -37,7 +37,12 @@ public class Engine {
         System.out.println("Question: " + question);
     }
 
+    public static void printTask(String task) {
+        System.out.println(task);
+    }
+
     public static String getUserAnswer(Scanner scanner) {
+        System.out.print("Your answer: ");
         return scanner.nextLine();
     }
 
