@@ -14,7 +14,9 @@ public class EvenGame {
         var roundsCount = Engine.defaultRoundsCount;
         // Задаем максимальное случайное число
         var limit = 1000;
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+        // Сообщаем пользователю задание для игры
+        var task = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+        Engine.printTask(task);
         for (int i = 0; i < roundsCount; i++) {
             // Получаем случайное число
             var newNumber = Engine.generateRandomNumber(limit);
@@ -32,7 +34,10 @@ public class EvenGame {
             // Проверяем, является ли текущий раунд финальным
             // Если раунд финальный - поздравляем пользователя
             var isFinalRound = i == roundsCount - 1;
-            if (isCorrectAnswer && isFinalRound) {
+            if (!isCorrectAnswer) {
+                return;
+            }
+            if (isFinalRound) {
                 Engine.congratulate(userName);
             }
         }
