@@ -53,7 +53,7 @@ public class GCD {
         // меньшее число на остаток от деления.
         // Повторяем шаги до тех пор, пока остаток от деления не будет равен нулю.
         // В данном случае сразу заменяем большее число на меньшее,
-        // меньшее на остаток, повторяем шаги до тех пор,
+        // меньшее на остаток от деления, повторяем шаги до тех пор,
         // пока меньшее число не будет равен нулю
         // Как только меньшее число будет равен нулю,
         // Возвращаем большее число
@@ -61,7 +61,7 @@ public class GCD {
         var minNumber = Math.min(number1, number2);
 
         while (minNumber != 0) {
-            var remainder = maxNumber % maxNumber;
+            var remainder = maxNumber % minNumber;
             maxNumber = minNumber;
             minNumber = remainder;
         }
