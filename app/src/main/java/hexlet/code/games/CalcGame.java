@@ -14,7 +14,7 @@ public class CalcGame {
         // Задаем количество раундов
         var roundsCount = Engine.defaultRoundsCount;
         // Задаем максимальное случайное число
-        var limit = 100;
+        var limit = 30;
         // Сообщаем пользователю условие игры
         var rule = "What is the result of the expression?";
         Engine.printTask(rule);
@@ -33,7 +33,10 @@ public class CalcGame {
             Engine.printResult(userAnswer, correctAnswer, isCorrectAnswer, userName);
 
             var isFinalRound = i == roundsCount - 1;
-            if (isCorrectAnswer && isFinalRound) {
+            if (!isCorrectAnswer) {
+                return;
+            }
+            if (isFinalRound) {
                 Engine.congratulate(userName);
             }
         }
@@ -41,7 +44,7 @@ public class CalcGame {
 
     public static char generateOperator() {
         // Количество арифметических операций: "+", "-", "*"
-        var limit = 4;
+        var limit = 3;
         var generatedNumber = Engine.generateRandomNumber(limit);
         switch (generatedNumber) {
             case 1:
