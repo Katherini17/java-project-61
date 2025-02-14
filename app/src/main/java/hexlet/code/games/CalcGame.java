@@ -16,8 +16,8 @@ public class CalcGame {
         // Задаем максимальное случайное число
         var limit = 30;
         // Сообщаем пользователю условие игры
-        var rule = "What is the result of the expression?";
-        Engine.printTask(rule);
+        var task = "What is the result of the expression?";
+        Engine.printTask(task);
 
         for (int i = 0; i < roundsCount; i++) {
             var number1 = Engine.generateRandomNumber(limit);
