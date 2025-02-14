@@ -4,7 +4,7 @@ import hexlet.code.Engine;
 
 import java.util.Scanner;
 
-public class GCDGame {
+public class GcdGame {
     public static void play(Scanner scanner) {
         // Приветствуем пользователя
         Engine.sendWelcomeMessage();
@@ -23,7 +23,7 @@ public class GCDGame {
             var number1 = Engine.generateRandomNumber(limit);
             var number2 = Engine.generateRandomNumber(limit);
             // Вычисляем наименьший общий делитель
-            var correctAnswer = calcGCD();
+            var correctAnswer = Integer.toString(calcGCD(number1, number2));
             // Узнаем ответ пользователя
             var question = number1 + " " + number2;
             Engine.askUser(question);
@@ -54,9 +54,9 @@ public class GCDGame {
         // Повторяем шаги до тех пор, пока остаток от деления не будет равен нулю.
         // В данном случае сразу заменяем большее число на меньшее,
         // меньшее на остаток от деления, повторяем шаги до тех пор,
-        // пока меньшее число не будет равен нулю
+        // пока меньшее число (т. е. остаток от деления на предыдущем шаге) не будет равен нулю
         // Как только меньшее число будет равен нулю,
-        // Возвращаем большее число
+        // Возвращаем большее (т. е. меньшее число на предыдущем шаге) число.
         var maxNumber = Math.max(number1, number2);
         var minNumber = Math.min(number1, number2);
 
