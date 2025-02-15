@@ -30,11 +30,11 @@ public class ProgressionGame {
 
         for (int i = 0; i < roundsCount; i++) {
             // Получаем длину арифметической прогрессии
-            var length = Engine.getElementInRange(minLength, maxLength);
+            var length = Engine.generateElementInRange(minLength, maxLength);
             // Получаем разность арифметической прогрессии
-            var commonDifference = Engine.getElementInRange(minCommonDifference, maxCommonDifference);
+            var commonDifference = Engine.generateElementInRange(minCommonDifference, maxCommonDifference);
             // Получаем первый элемент арифметической прогрессии
-            var firstElement = Engine.getElementInRange(minFirstElement, maxFirstElement);
+            var firstElement = Engine.generateElementInRange(minFirstElement, maxFirstElement);
             // Получаем позицию скрытого элемента арифметической прогрессии,
             var positionOfHiddenElement = Engine.generateRandomNumber(length) - 1;
             // Получаем массив - последовательность элементов арифметической
