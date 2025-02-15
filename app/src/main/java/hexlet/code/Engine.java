@@ -68,5 +68,15 @@ public class Engine {
     public static int generateRandomNumber(int limit) {
         return (int) (Math.random() * limit) + 1;
     }
+
+    public static int generateElementInRange(int min, int max) {
+        // Находим количество допустимых элементов в диапазоне
+        var range = max - min + 1;
+        // Находим случайный элемент в диапазоне от 1 до range,
+        // и сдвигаем диапазон на max - range
+        return Engine.generateRandomNumber(range) + (max - range);
+    }
+
 }
+
 
