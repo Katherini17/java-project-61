@@ -20,26 +20,26 @@ public class App {
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
 
-        var choice = Integer.parseInt(scanner.nextLine());
+        var choice = scanner.next();
 
         switch (choice) {
-            case 0:
+            case "0":
                 break;
-            case 1:
+            case "1":
                 Engine.sendWelcomeMessage();
                 var name = Engine.askUserName(scanner);
                 Engine.sendGreetingByNameMessage(name);
                 break;
-            case 2:
+            case "2":
                 EvenGame.play(scanner);
                 break;
-            case 3:
+            case "3":
                 CalcGame.play(scanner);
                 break;
-            case 4:
+            case "4":
                 GcdGame.play(scanner);
                 break;
-            case 5:
+            case "5":
                 ProgressionGame.play(scanner);
                 break;
             default:
