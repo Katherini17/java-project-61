@@ -32,7 +32,6 @@ public class App {
         System.out.print("Your choice: ");
 
         var choice = scanner.nextLine().trim();
-        System.out.println();
 
         switch (choice) {
             case "0":
