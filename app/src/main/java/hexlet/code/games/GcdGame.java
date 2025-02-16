@@ -11,17 +11,15 @@ public class GcdGame {
         var userName = Engine.askUserName(scanner);
         Engine.sendGreetingByNameMessage(userName);
         // Задаем количество раундов
-        var roundsCount = Engine.defaultRoundsCount;
         // Задаем максимальное случайное число
-        var limit = 30;
         // Сообщаем пользователю задание для игры
         var task = "Find the greatest common divisor of given numbers.";
         Engine.printTask(task);
 
-        for (int i = 0; i < roundsCount; i++) {
+        for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
             // Получаем два случайных числа
-            var number1 = Engine.generateRandomNumber(limit);
-            var number2 = Engine.generateRandomNumber(limit);
+            var number1 = getNewNumber();
+            var number2 = getNewNumber();
             // Вычисляем наименьший общий делитель
             var correctAnswer = Integer.toString(calcGCD(number1, number2));
             // Узнаем ответ пользователя
@@ -36,7 +34,7 @@ public class GcdGame {
                 return;
             }
             // Узнаем, был ли текущий раунд финальным
-            var isFinalRound = i == roundsCount - 1;
+            var isFinalRound = i == Engine.ROUNDS_COUNT - 1;
             // Если раунд был финальным, поздравляем пользователя
             if (isFinalRound) {
                 Engine.congratulate(userName);
@@ -67,5 +65,10 @@ public class GcdGame {
         }
 
         return maxNumber;
+    }
+
+    public static int getNewNumber() {
+        final int LIMIT = 30;
+        return Engine.generateRandomNumber(LIMIT);
     }
 }
