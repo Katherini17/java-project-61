@@ -9,30 +9,32 @@ public class ProgressionGame {
         Engine.sendWelcomeMessage();
         var userName = Engine.askUserName(scanner);
         Engine.sendGreetingByNameMessage(userName);
+        // Задаем количество раундов
+        var roundsCount = Engine.defaultRoundsCount;
         // Задаем максимальное и минимальное число элементов прогрессии
-        final int MIN_LENGTH = 5;
-        final int MAX_LENGTH = 10;
+        var minLength = 5;
+        var maxLength = 10;
         // Каждый элемент арифметической прогрессии задается формулой:
         // an = a1 + (n - 1)*d,
         // где a1 - первый элемент арифметической прогрессии,
         //     d - разность арифметической прогрессии.
         // Пусть d будет случайным числом от 3 до 25
-        final int MIN_COMMON_DIFFERENCE = 3;
-        final int MAX_COMMON_DIFFERENCE = 25;
+        var minCommonDifference = 3;
+        var maxCommonDifference = 25;
         // Пусть первый элемент прогрессии будет случайным числом от 5 до 70
-        final int MIN_FIRST_ELEMENT = 5;
-        final int MAX_FIRST_ELEMENT = 70;
+        var minFirstElement = 5;
+        var maxFirstElement = 70;
         // Сообщаем пользователю задание для игры
         var task = "What number is missing in the progression?";
         Engine.printTask(task);
 
-        for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
+        for (int i = 0; i < roundsCount; i++) {
             // Получаем длину арифметической прогрессии
-            var length = Engine.generateElementInRange(MIN_LENGTH, MAX_LENGTH);
+            var length = Engine.generateElementInRange(minLength, maxLength);
             // Получаем разность арифметической прогрессии
-            var commonDifference = Engine.generateElementInRange(MIN_COMMON_DIFFERENCE, MAX_COMMON_DIFFERENCE);
+            var commonDifference = Engine.generateElementInRange(minCommonDifference, maxCommonDifference);
             // Получаем первый элемент арифметической прогрессии
-            var firstElement = Engine.generateElementInRange(MIN_FIRST_ELEMENT, MAX_FIRST_ELEMENT);
+            var firstElement = Engine.generateElementInRange(minFirstElement, maxFirstElement);
             // Получаем позицию скрытого элемента арифметической прогрессии,
             var positionOfHiddenElement = Engine.generateRandomNumber(length) - 1;
             // Получаем массив - последовательность элементов арифметической
@@ -46,7 +48,7 @@ public class ProgressionGame {
             var userHiddenElement = Engine.getUserAnswer(scanner);
             var isCorrectAnswer = Engine.checkAnswer(userHiddenElement, correctHiddenElement);
             Engine.printResult(userHiddenElement, correctHiddenElement, isCorrectAnswer, userName);
-            var isFinalRound = i == Engine.ROUNDS_COUNT - 1;
+            var isFinalRound = i == roundsCount - 1;
             if (!isCorrectAnswer) {
                 return;
             }

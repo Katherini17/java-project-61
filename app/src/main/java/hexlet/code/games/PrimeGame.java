@@ -10,9 +10,10 @@ public class PrimeGame {
         Engine.sendWelcomeMessage();
         var userName = Engine.askUserName(scanner);
         Engine.sendGreetingByNameMessage(userName);
+        var roundsCount = Engine.defaultRoundsCount;
         var task = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         Engine.printTask(task);
-        for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
+        for (int i = 0; i < roundsCount; i++) {
             var newNumber = getNewNumber();
             var correctAnswer = isPrimeNumber(newNumber) ? "yes" : "no";
             var question = Integer.toString(newNumber);
@@ -20,7 +21,7 @@ public class PrimeGame {
             var userAnswer = Engine.getUserAnswer(scanner);
             var isCorrectAnswer = Engine.checkAnswer(userAnswer, correctAnswer);
             Engine.printResult(userAnswer, correctAnswer, isCorrectAnswer, userName);
-            var isFinalRound = i == Engine.ROUNDS_COUNT - 1;
+            var isFinalRound = i == roundsCount - 1;
             if (!isCorrectAnswer) {
                 return;
             }

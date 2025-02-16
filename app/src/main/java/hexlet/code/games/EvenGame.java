@@ -10,12 +10,16 @@ public class EvenGame {
         Engine.sendWelcomeMessage();
         var userName = Engine.askUserName(scanner);
         Engine.sendGreetingByNameMessage(userName);
+        // Задаем количество раундов
+        var roundsCount = Engine.defaultRoundsCount;
+        // Задаем максимальное случайное число
+        var limit = 1000;
         // Сообщаем пользователю задание для игры
         var task = "Answer 'yes' if the number is even, otherwise answer 'no'.";
         Engine.printTask(task);
-        for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
+        for (int i = 0; i < roundsCount; i++) {
             // Получаем случайное число
-            var newNumber = getNewNumber();
+            var newNumber = Engine.generateRandomNumber(limit);
             // Узнаем правильный ответ
             var correctAnswer = isEven(newNumber) ? "yes" : "no";
             // Задаем вопрос пользователю
@@ -29,7 +33,7 @@ public class EvenGame {
             Engine.printResult(userAnswer, correctAnswer, isCorrectAnswer, userName);
             // Проверяем, является ли текущий раунд финальным
             // Если раунд финальный - поздравляем пользователя
-            var isFinalRound = i == Engine.ROUNDS_COUNT - 1;
+            var isFinalRound = i == roundsCount - 1;
             if (!isCorrectAnswer) {
                 return;
             }
@@ -44,11 +48,7 @@ public class EvenGame {
         // Проверяем, является ли число четным
         // Число является четным если делиться на 2 без остатка
         return number % 2 == 0;
-    }
 
-    public static int getNewNumber() {
-        final int LIMIT = 1000;
-        return Engine.generateRandomNumber(LIMIT);
     }
 
 }

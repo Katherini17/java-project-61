@@ -11,13 +11,17 @@ public class CalcGame {
         Engine.sendWelcomeMessage();
         var userName = Engine.askUserName(scanner);
         Engine.sendGreetingByNameMessage(userName);
+        // Задаем количество раундов
+        var roundsCount = Engine.defaultRoundsCount;
+        // Задаем максимальное случайное число
+        var limit = 30;
         // Сообщаем пользователю условие игры
         var task = "What is the result of the expression?";
         Engine.printTask(task);
 
-        for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
-            var number1 = getNewNumber();
-            var number2 = getNewNumber();
+        for (int i = 0; i < roundsCount; i++) {
+            var number1 = Engine.generateRandomNumber(limit);
+            var number2 = Engine.generateRandomNumber(limit);
             var operator = generateOperator();
             var correctAnswer = Integer.toString(calcExpression(number1, number2, operator));
 
@@ -28,7 +32,7 @@ public class CalcGame {
 
             Engine.printResult(userAnswer, correctAnswer, isCorrectAnswer, userName);
 
-            var isFinalRound = i == Engine.ROUNDS_COUNT - 1;
+            var isFinalRound = i == roundsCount - 1;
             if (!isCorrectAnswer) {
                 return;
             }
@@ -61,11 +65,6 @@ public class CalcGame {
             default:
                 return number1 * number2;
         }
-    }
-
-    public static int getNewNumber() {
-        final int LIMIT = 30;
-        return Engine.generateRandomNumber(LIMIT);
     }
 
 }
