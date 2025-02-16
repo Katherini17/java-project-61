@@ -13,7 +13,6 @@ public class Engine {
         return name;
     }
     public static void sendWelcomeMessage() {
-        System.out.println();
         System.out.println("Welcome to the Brain Games!");
     }
 
