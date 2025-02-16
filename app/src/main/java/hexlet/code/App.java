@@ -11,16 +11,24 @@ import java.util.Scanner;
 
 public class App {
 
+    private static final String GREET = "1";
+    private static final String EVEN = "2";
+    private static final String CALC = "3";
+    private static final String GCD = "4";
+    private static final String PROGRESSION = "5";
+    private static final String PRIME = "6";
+    private static final String EXIT = "0";
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the game number and press Enter.");
-        System.out.println("1 - Greet");
-        System.out.println("2 - Even");
-        System.out.println("3 - Calc");
-        System.out.println("4 - GCD");
-        System.out.println("5 - Progression");
-        System.out.println("6 - Prime");
-        System.out.println("0 - Exit");
+        System.out.println(GREET + " - Greet");
+        System.out.println(EVEN + " - Even");
+        System.out.println(CALC + " - Calc");
+        System.out.println(GCD + " - GCD");
+        System.out.println(PROGRESSION + " - Progression");
+        System.out.println(PRIME + " - Prime");
+        System.out.println(EXIT + " - Exit");
         System.out.print("Your choice: ");
 
         var choice = scanner.nextLine().trim();
