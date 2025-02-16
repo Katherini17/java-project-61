@@ -6,4 +6,6 @@
 Even game: https://asciinema.org/a/8Y6ghProBdCs2nxsVOEOVGyg8
 Calc game: https://asciinema.org/a/8v0OlZHwltZmz5VKX7SMXybgR
 GCD game: https://asciinema.org/a/4f80IuuJ6EBfDTe2U6hbBqRtg
-Progression: https://asciinema.org/a/PP85qq9dhFz8HGQ0icgkjfKQi
+Progression game: https://asciinema.org/a/PP85qq9dhFz8HGQ0icgkjfKQi
+Prime game: https://asciinema.org/a/nt3DMxSRfMsJnNsVe3X0zSDjf
+

@@ -38,15 +38,19 @@ public class PrimeGame {
 
 
     public static boolean isPrimeNumber(int number) {
-        var isPrime = true;
-        var rootOfNumber = (int) Math.sqrt((double) number);
-        for (int i = 2; i <= rootOfNumber; i++) {
-            if (number % i == 0) {
-                isPrime = false;
-            }
+
+        if (number == 1) {
+            return false;
         }
 
-        return isPrime;
+        var rootOfNumber = (int) Math.sqrt((double) number);
+
+        for (int i = 2; i <= rootOfNumber; i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
 }
