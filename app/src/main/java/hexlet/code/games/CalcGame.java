@@ -7,6 +7,9 @@ import java.util.Scanner;
 public class CalcGame {
 
     public static final Integer MAX_RANDOM_NUMBER = 30;
+    // Задаем число операторов для последующей генерации случайного оператора
+    // "+", "-", "*"
+    public static final Integer OPERATORS_COUNT = 3;
 
     public static void play(Scanner scanner) {
         // Приветствуем пользователя
@@ -44,9 +47,7 @@ public class CalcGame {
     }
 
     public static char generateOperator() {
-        // Количество арифметических операций: "+", "-", "*"
-        var limit = 3;
-        var generatedNumber = Engine.generateRandomNumber(limit);
+        var generatedNumber = Engine.generateRandomNumber(OPERATORS_COUNT);
         switch (generatedNumber) {
             case 1:
                 return '+';
