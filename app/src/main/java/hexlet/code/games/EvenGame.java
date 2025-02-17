@@ -6,48 +6,28 @@ import java.util.Scanner;
 public class EvenGame {
 
     public static final Integer MAX_RANDOM_NUMBER = 1000;
+    public static final String TASK = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-    public static void play(Scanner scanner) {
-        // Приветствуем пользователя
-        Engine.sendWelcomeMessage();
-        var userName = Engine.askUserName(scanner);
-        Engine.sendGreetingByNameMessage(userName);
-        // Задаем количество раундов
-        int roundsCount = Engine.DEFAULT_ROUNDS_COUNT;
-        // Задаем максимальное случайное число
-        // Объясняем пользователю задание для игры
-        var task = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-        Engine.printTask(task);
-        for (int i = 0; i < roundsCount; i++) {
-            // Получаем случайное число
-            var newNumber = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
-            // Узнаем правильный ответ
-            var correctAnswer = isEven(newNumber) ? "yes" : "no";
-            // Задаем вопрос пользователю
-            var question = Integer.toString(newNumber);
-            Engine.askUser(question);
-            // Получаем ответ пользователя
-            var userAnswer = Engine.getUserAnswer(scanner);
-            // Проверяем ответ пользователя
-            var isCorrectAnswer = Engine.checkAnswer(userAnswer, correctAnswer);
-            // Выводим результат в зависимости от того, как ответил пользователь
-            Engine.printResult(userAnswer, correctAnswer, isCorrectAnswer, userName);
-            // Проверяем, является ли текущий раунд финальным
-            // Если раунд финальный - поздравляем пользователя
-            var isFinalRound = i == roundsCount - 1;
-            if (!isCorrectAnswer) {
-                return;
-            }
-            if (isFinalRound) {
-                Engine.congratulate(userName);
-            }
+    public static void playEvenGame(Scanner scanner) {
+        var questions = new String[Engine.DEFAULT_ROUNDS_COUNT];
+        var correctAnswers = new String[Engine.DEFAULT_ROUNDS_COUNT];
+
+        for (int i = 0; i < Engine.DEFAULT_ROUNDS_COUNT; i++) {
+
+            var randomNumber = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
+            questions[i] = Integer.toString(randomNumber);
+            var correctAnswer = isEven(randomNumber) ? "yes" : "no";
+            correctAnswers[i] = correctAnswer;
+
         }
+
+        Engine.play(scanner, TASK, questions, correctAnswers);
 
     }
 
     public static boolean isEven(int number) {
         // Проверяем, является ли число четным
-        // Число является четным если делиться на 2 без остатка
+        // Число является четным если делиться на 2 без остатка - т. е. является четным
         return number % 2 == 0;
 
     }
