@@ -6,41 +6,25 @@ import java.util.Scanner;
 
 public class GcdGame {
     public static final Integer MAX_RANDOM_NUMBER = 30;
-    public static void play(Scanner scanner) {
-        // Приветствуем пользователя
-        Engine.sendWelcomeMessage();
-        var userName = Engine.askUserName(scanner);
-        Engine.sendGreetingByNameMessage(userName);
-        // Задаем количество раундов
-        int roundsCount = Engine.DEFAULT_ROUNDS_COUNT;
-        // Сообщаем пользователю задание для игры
-        var task = "Find the greatest common divisor of given numbers.";
-        Engine.printTask(task);
+    public static final String TASK = "Find the greatest common divisor of given numbers.";
 
-        for (int i = 0; i < roundsCount; i++) {
+    public static void playGcdGame(Scanner scanner) {
+        var questions = new String[Engine.DEFAULT_ROUNDS_COUNT];
+        var correctAnswers = new String[Engine.DEFAULT_ROUNDS_COUNT];
+
+        for (int i = 0; i < Engine.DEFAULT_ROUNDS_COUNT; i++) {
             // Получаем два случайных числа
             var number1 = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
             var number2 = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
             // Вычисляем наименьший общий делитель
             var correctAnswer = Integer.toString(calcGCD(number1, number2));
-            // Узнаем ответ пользователя
+            correctAnswers[i] = correctAnswer;
+
             var question = number1 + " " + number2;
-            Engine.askUser(question);
-            var userAnswer = Engine.getUserAnswer(scanner);
-            // Проверяем ответ пользователя
-            var isCorrectAnswer = Engine.checkAnswer(userAnswer, correctAnswer);
-            // Выводим результат
-            Engine.printResult(userAnswer, correctAnswer, isCorrectAnswer, userName);
-            if (!isCorrectAnswer) {
-                return;
-            }
-            // Узнаем, был ли текущий раунд финальным
-            var isFinalRound = i == roundsCount - 1;
-            // Если раунд был финальным, поздравляем пользователя
-            if (isFinalRound) {
-                Engine.congratulate(userName);
-            }
+            questions[i] = question;
         }
+
+        Engine.play(scanner, TASK, questions, correctAnswers);
     }
 
     public static int calcGCD(int number1, int number2) {
