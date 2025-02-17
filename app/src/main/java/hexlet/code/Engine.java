@@ -3,7 +3,7 @@ package hexlet.code;
 import java.util.Scanner;
 
 public class Engine {
-    public static int defaultRoundsCount = 3;
+    public static final Integer DEFAULT_ROUNDS_COUNT = 3;
 
     // Методы для взаимодействия с пользователем
 

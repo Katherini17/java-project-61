@@ -5,21 +5,22 @@ import java.util.Scanner;
 
 public class EvenGame {
 
+    public static final Integer MAX_RANDOM_NUMBER = 1000;
+
     public static void play(Scanner scanner) {
         // Приветствуем пользователя
         Engine.sendWelcomeMessage();
         var userName = Engine.askUserName(scanner);
         Engine.sendGreetingByNameMessage(userName);
         // Задаем количество раундов
-        var roundsCount = Engine.defaultRoundsCount;
+        int roundsCount = Engine.DEFAULT_ROUNDS_COUNT;
         // Задаем максимальное случайное число
-        var limit = 1000;
-        // Сообщаем пользователю задание для игры
+        // Объясняем пользователю задание для игры
         var task = "Answer 'yes' if the number is even, otherwise answer 'no'.";
         Engine.printTask(task);
         for (int i = 0; i < roundsCount; i++) {
             // Получаем случайное число
-            var newNumber = Engine.generateRandomNumber(limit);
+            var newNumber = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
             // Узнаем правильный ответ
             var correctAnswer = isEven(newNumber) ? "yes" : "no";
             // Задаем вопрос пользователю

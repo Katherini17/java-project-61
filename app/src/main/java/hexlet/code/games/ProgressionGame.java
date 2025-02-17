@@ -4,37 +4,38 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 public class ProgressionGame {
+    // Задаем максимальное и минимальное число элементов прогрессии
+    // Каждый элемент арифметической прогрессии задается формулой:
+    // an = a1 + (n - 1)*d,
+    // где a1 - первый элемент арифметической прогрессии,
+    //     d - разность арифметической прогрессии.
+    // Пусть d будет случайным числом от 3 до 25
+    public static final Integer MIN_COMMON_DIFFERENCE = 3;
+    public static final Integer MAX_COMMON_DIFFERENCE = 25;
+    // Задаем максимальный и минимальный возможный первый элемент арифметической прогрессии
+    public static final Integer MIN_FIRST_ELEMENT = 5;
+    public static final Integer MAX_FIRST_ELEMENT = 70;
+    // Задаем минимальную и максимальную длину арифметической прогрессии
+    public static final Integer MIN_PROGRESSION_LENGTH = 5;
+    public static final Integer MAX_PROGRESSION_LENGTH = 10;
 
     public static void play(Scanner scanner) {
         Engine.sendWelcomeMessage();
         var userName = Engine.askUserName(scanner);
         Engine.sendGreetingByNameMessage(userName);
         // Задаем количество раундов
-        var roundsCount = Engine.defaultRoundsCount;
-        // Задаем максимальное и минимальное число элементов прогрессии
-        var minLength = 5;
-        var maxLength = 10;
-        // Каждый элемент арифметической прогрессии задается формулой:
-        // an = a1 + (n - 1)*d,
-        // где a1 - первый элемент арифметической прогрессии,
-        //     d - разность арифметической прогрессии.
-        // Пусть d будет случайным числом от 3 до 25
-        var minCommonDifference = 3;
-        var maxCommonDifference = 25;
-        // Пусть первый элемент прогрессии будет случайным числом от 5 до 70
-        var minFirstElement = 5;
-        var maxFirstElement = 70;
+        int roundsCount = Engine.DEFAULT_ROUNDS_COUNT;
         // Сообщаем пользователю задание для игры
         var task = "What number is missing in the progression?";
         Engine.printTask(task);
 
         for (int i = 0; i < roundsCount; i++) {
             // Получаем длину арифметической прогрессии
-            var length = Engine.generateElementInRange(minLength, maxLength);
+            var length = Engine.generateElementInRange(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
             // Получаем разность арифметической прогрессии
-            var commonDifference = Engine.generateElementInRange(minCommonDifference, maxCommonDifference);
+            var commonDifference = Engine.generateElementInRange(MIN_COMMON_DIFFERENCE, MAX_COMMON_DIFFERENCE);
             // Получаем первый элемент арифметической прогрессии
-            var firstElement = Engine.generateElementInRange(minFirstElement, maxFirstElement);
+            var firstElement = Engine.generateElementInRange(MIN_FIRST_ELEMENT, MAX_FIRST_ELEMENT);
             // Получаем позицию скрытого элемента арифметической прогрессии,
             var positionOfHiddenElement = Engine.generateRandomNumber(length) - 1;
             // Получаем массив - последовательность элементов арифметической

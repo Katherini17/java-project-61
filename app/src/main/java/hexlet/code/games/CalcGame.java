@@ -6,22 +6,23 @@ import java.util.Scanner;
 
 public class CalcGame {
 
+    public static final Integer MAX_RANDOM_NUMBER = 30;
+
     public static void play(Scanner scanner) {
         // Приветствуем пользователя
         Engine.sendWelcomeMessage();
         var userName = Engine.askUserName(scanner);
         Engine.sendGreetingByNameMessage(userName);
         // Задаем количество раундов
-        var roundsCount = Engine.defaultRoundsCount;
+        int roundsCount = Engine.DEFAULT_ROUNDS_COUNT;
         // Задаем максимальное случайное число
-        var limit = 30;
-        // Сообщаем пользователю условие игры
+        // Объясняем пользователю условие игры
         var task = "What is the result of the expression?";
         Engine.printTask(task);
 
         for (int i = 0; i < roundsCount; i++) {
-            var number1 = Engine.generateRandomNumber(limit);
-            var number2 = Engine.generateRandomNumber(limit);
+            var number1 = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
+            var number2 = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
             var operator = generateOperator();
             var correctAnswer = Integer.toString(calcExpression(number1, number2, operator));
 

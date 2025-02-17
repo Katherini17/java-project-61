@@ -5,23 +5,22 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 public class GcdGame {
+    public static final Integer MAX_RANDOM_NUMBER = 30;
     public static void play(Scanner scanner) {
         // Приветствуем пользователя
         Engine.sendWelcomeMessage();
         var userName = Engine.askUserName(scanner);
         Engine.sendGreetingByNameMessage(userName);
         // Задаем количество раундов
-        var roundsCount = Engine.defaultRoundsCount;
-        // Задаем максимальное случайное число
-        var limit = 30;
+        int roundsCount = Engine.DEFAULT_ROUNDS_COUNT;
         // Сообщаем пользователю задание для игры
         var task = "Find the greatest common divisor of given numbers.";
         Engine.printTask(task);
 
         for (int i = 0; i < roundsCount; i++) {
             // Получаем два случайных числа
-            var number1 = Engine.generateRandomNumber(limit);
-            var number2 = Engine.generateRandomNumber(limit);
+            var number1 = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
+            var number2 = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
             // Вычисляем наименьший общий делитель
             var correctAnswer = Integer.toString(calcGCD(number1, number2));
             // Узнаем ответ пользователя
