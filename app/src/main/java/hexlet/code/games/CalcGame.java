@@ -17,8 +17,9 @@ public class CalcGame {
 
     public static void playCalcGame(Scanner scanner) {
         // Создаем список вопросов и ответов для всех раундов
-        var questions = new String[3];
-        var correctAnswers = new String[3];
+        var questions = new String[Engine.DEFAULT_ROUNDS_COUNT];
+        var correctAnswers = new String[Engine.DEFAULT_ROUNDS_COUNT];
+
         for (int i = 0; i < Engine.DEFAULT_ROUNDS_COUNT; i++) {
             var number1 = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
             var number2 = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);

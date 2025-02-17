@@ -42,19 +42,19 @@ public class App {
                 Engine.sendGreetingByNameMessage(name);
                 break;
             case "2":
-                EvenGame.play(scanner);
+                EvenGame.playEvenGame(scanner);
                 break;
             case "3":
-                CalcGame.play(scanner);
+                CalcGame.playCalcGame(scanner);
                 break;
             case "4":
-                GcdGame.play(scanner);
+                GcdGame.playGcdGame(scanner);
                 break;
             case "5":
-                ProgressionGame.play(scanner);
+                ProgressionGame.playProgressionGame(scanner);
                 break;
             case "6":
-                PrimeGame.play(scanner);
+                PrimeGame.playPrimeGame(scanner);
                 break;
             default:
                 System.out.println("Incorrect choice");
@@ -62,5 +62,4 @@ public class App {
 
         scanner.close();
     }
-
 }
