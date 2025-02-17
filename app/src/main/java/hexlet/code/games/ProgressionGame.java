@@ -9,6 +9,7 @@ public class ProgressionGame {
     // an = a1 + (n - 1)*d,
     // где a1 - первый элемент арифметической прогрессии,
     //     d - разность арифметической прогрессии.
+    public static final String TASK = "What number is missing in the progression?";
     // Пусть d будет случайным числом от 3 до 25
     public static final Integer MIN_COMMON_DIFFERENCE = 3;
     public static final Integer MAX_COMMON_DIFFERENCE = 25;
@@ -19,17 +20,11 @@ public class ProgressionGame {
     public static final Integer MIN_PROGRESSION_LENGTH = 5;
     public static final Integer MAX_PROGRESSION_LENGTH = 10;
 
-    public static void play(Scanner scanner) {
-        Engine.sendWelcomeMessage();
-        var userName = Engine.askUserName(scanner);
-        Engine.sendGreetingByNameMessage(userName);
-        // Задаем количество раундов
-        int roundsCount = Engine.DEFAULT_ROUNDS_COUNT;
-        // Сообщаем пользователю задание для игры
-        var task = "What number is missing in the progression?";
-        Engine.printTask(task);
+    public static void playProgressionGame(Scanner scanner) {
+        var questions = new String[Engine.DEFAULT_ROUNDS_COUNT];
+        var correctAnswers = new String[Engine.DEFAULT_ROUNDS_COUNT];
 
-        for (int i = 0; i < roundsCount; i++) {
+        for (int i = 0; i < Engine.DEFAULT_ROUNDS_COUNT; i++) {
             // Получаем длину арифметической прогрессии
             var length = Engine.generateElementInRange(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
             // Получаем разность арифметической прогрессии
@@ -42,21 +37,14 @@ public class ProgressionGame {
             var elements = getArithmeticProgression(length, firstElement, commonDifference);
             // Получаем правильный ответ - скрытый элемент арифметической прогрессии
             var correctHiddenElement = elements[positionOfHiddenElement];
+            correctAnswers[i] = correctHiddenElement;
             // Скрываем элемент
             elements[positionOfHiddenElement] = "..";
             String question = String.join(" ", elements);
-            Engine.askUser(question);
-            var userHiddenElement = Engine.getUserAnswer(scanner);
-            var isCorrectAnswer = Engine.checkAnswer(userHiddenElement, correctHiddenElement);
-            Engine.printResult(userHiddenElement, correctHiddenElement, isCorrectAnswer, userName);
-            var isFinalRound = i == roundsCount - 1;
-            if (!isCorrectAnswer) {
-                return;
-            }
-            if (isFinalRound) {
-                Engine.congratulate(userName);
-            }
+            questions[i] = question;
         }
+
+        Engine.play(scanner, TASK, questions, correctAnswers);
     }
 
     public static String[] getArithmeticProgression(int length, int firstElement, int commonDifference) {
