@@ -84,13 +84,6 @@ public class Engine {
         return userAnswer.equals(correctAnswer);
     }
 
-    // Логика игры
-
-    public static void printResult(String userAnswer, String correctAnswer, boolean isCorrectAnswer, String userName) {
-
-
-    }
-
     public static int generateRandomNumber(int limit) {
         return (int) (Math.random() * limit) + 1;
     }
