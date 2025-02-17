@@ -34,26 +34,26 @@ public class App {
         var choice = scanner.nextLine().trim();
 
         switch (choice) {
-            case "0":
+            case EXIT:
                 break;
-            case "1":
+            case GREET:
                 Engine.sendWelcomeMessage();
                 var name = Engine.askUserName(scanner);
                 Engine.sendGreetingByNameMessage(name);
                 break;
-            case "2":
+            case EVEN:
                 EvenGame.playEvenGame(scanner);
                 break;
-            case "3":
+            case CALC:
                 CalcGame.playCalcGame(scanner);
                 break;
-            case "4":
+            case GCD:
                 GcdGame.playGcdGame(scanner);
                 break;
-            case "5":
+            case PROGRESSION:
                 ProgressionGame.playProgressionGame(scanner);
                 break;
-            case "6":
+            case PRIME:
                 PrimeGame.playPrimeGame(scanner);
                 break;
             default:
