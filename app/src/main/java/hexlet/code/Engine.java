@@ -6,8 +6,6 @@ public class Engine {
     public static final Integer DEFAULT_ROUNDS_COUNT = 3;
 
     public static void play(Scanner scanner, String task, String[] questions, String[] correctAnswers) {
-        // Пропускаем строку
-        System.out.println();
         // Приветствуем пользователя
         sendWelcomeMessage();
         var userName = askUserName(scanner);
@@ -48,6 +46,7 @@ public class Engine {
         return name;
     }
     public static void sendWelcomeMessage() {
+        System.out.println();
         System.out.println("Welcome to the Brain Games!");
     }
 
