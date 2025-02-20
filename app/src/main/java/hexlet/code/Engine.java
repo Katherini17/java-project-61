@@ -6,29 +6,28 @@ public class Engine {
     public static final Integer DEFAULT_ROUNDS_COUNT = 3;
 
     public static void play(Scanner scanner, String task, String[] questions, String[] correctAnswers) {
-        // Приветствуем пользователя
         sendWelcomeMessage();
         var userName = askUserName(scanner);
         sendGreetingByNameMessage(userName);
-        // Объясняем пользователю задание для игры
+
         Engine.printTask(task);
+
         for (int i = 0; i < DEFAULT_ROUNDS_COUNT; i++) {
-            // Вопрос и правильный ответ соответствуют номеру текущего раунда
+
             var question = questions[i];
             var correctAnswer = correctAnswers[i];
+
             askUser(question);
-            // Получаем ответ пользователя
             var userAnswer = getUserAnswer(scanner);
-            // Проверяем ответ пользователя
+
             var isCorrectAnswer = checkAnswer(userAnswer, correctAnswer);
-            // Выводим результат в зависимости от того, как ответил пользователь
+
             if (isCorrectAnswer) {
                 sendCorrectMessage();
             } else {
                 sendIncorrectMessage(userName, userAnswer, correctAnswer);
             }
-            // Проверяем, является ли текущий раунд финальным
-            // Если раунд финальный - поздравляем пользователя
+
             var isFinalRound = i == DEFAULT_ROUNDS_COUNT - 1;
             if (!isCorrectAnswer) {
                 return;
@@ -89,10 +88,7 @@ public class Engine {
     }
 
     public static int generateElementInRange(int min, int max) {
-        // Находим количество допустимых элементов в диапазоне
         var range = max - min + 1;
-        // Находим случайный элемент в диапазоне от 1 до range,
-        // и сдвигаем диапазон на max - range
         return Engine.generateRandomNumber(range) + (max - range);
     }
 

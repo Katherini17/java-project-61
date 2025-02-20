@@ -27,18 +27,18 @@ public class PrimeGame {
     }
 
     public static boolean isPrimeNumber(int number) {
-        // 1 не является простым числом
+
         if (number == 1) {
             return false;
         }
-        // Проверяем, что число не делиться без остатка
-        // на делители от 2 до корня из числа
+
         var rootOfNumber = (int) Math.sqrt(number);
         for (int i = 2; i <= rootOfNumber; i++) {
             if (number % i == 0) {
                 return false;
             }
         }
+
         return true;
     }
 

@@ -7,8 +7,7 @@ import java.util.Scanner;
 public class CalcGame {
 
     public static final Integer MAX_RANDOM_NUMBER = 30;
-    // Задаем число операторов для последующей генерации случайного оператора
-    // "+", "-", "*"
+
     public static final Integer OPERATORS_COUNT = 3;
     private static final char ADDITION_SYMBOL = '+';
     private static final char SUBTRACTION_SYMBOL = '-';
@@ -16,19 +15,20 @@ public class CalcGame {
     public static final String TASK = "What is the result of the expression?";
 
     public static void playCalcGame(Scanner scanner) {
-        // Создаем список вопросов и ответов для всех раундов
+
         var questions = new String[Engine.DEFAULT_ROUNDS_COUNT];
         var correctAnswers = new String[Engine.DEFAULT_ROUNDS_COUNT];
 
         for (int i = 0; i < Engine.DEFAULT_ROUNDS_COUNT; i++) {
             var number1 = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
             var number2 = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
+
             var operator = generateOperator();
+
             var correctAnswer = Integer.toString(calcExpression(number1, number2, operator));
-            // Добавляем правильный ответ в массив
             correctAnswers[i] = correctAnswer;
+
             var question = number1 + " " + operator + " " + number2;
-            // Добавляем вопрос в массив
             questions[i] = question;
         }
 

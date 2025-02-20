@@ -26,10 +26,7 @@ public class EvenGame {
     }
 
     public static boolean isEven(int number) {
-        // Проверяем, является ли число четным
-        // Число является четным если делиться на 2 без остатка - т. е. является четным
         return number % 2 == 0;
-
     }
 
 }
