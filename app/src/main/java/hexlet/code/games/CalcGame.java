@@ -9,9 +9,8 @@ public class CalcGame {
     public static final Integer MAX_RANDOM_NUMBER = 30;
 
     public static final Integer OPERATORS_COUNT = 3;
-    private static final char ADDITION_SYMBOL = '+';
-    private static final char SUBTRACTION_SYMBOL = '-';
-    private static final char MULTIPLICATION_SYMBOL = '*';
+    private static final Character[] OPERATORS = {'+', '-', '*'};
+
     public static final String TASK = "What is the result of the expression?";
 
     public static void play() {
@@ -39,22 +38,15 @@ public class CalcGame {
     public static char generateOperator() {
         Random random = new Random();
 
-        int generatedNumber = random.nextInt(OPERATORS_COUNT);
-        switch (generatedNumber) {
-            case 1:
-                return ADDITION_SYMBOL;
-            case 2:
-                return SUBTRACTION_SYMBOL;
-            default:
-                return MULTIPLICATION_SYMBOL;
-        }
+        int randomNumber = random.nextInt(OPERATORS_COUNT);
+        return OPERATORS[randomNumber];
     }
 
     public static int calcExpression(int number1, int number2, char operator) {
         switch (operator) {
-            case ADDITION_SYMBOL:
+            case '+':
                 return number1 + number2;
-            case SUBTRACTION_SYMBOL:
+            case '-':
                 return number1 - number2;
             default:
                 return number1 * number2;
