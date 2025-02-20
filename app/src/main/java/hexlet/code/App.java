@@ -37,15 +37,13 @@ public class App {
             case EXIT:
                 break;
             case GREET:
-                Engine.sendWelcomeMessage();
-                var name = Engine.askUserName(scanner);
-                Engine.sendGreetingByNameMessage(name);
+                Engine.greet();
                 break;
             case EVEN:
                 EvenGame.playEvenGame(scanner);
                 break;
             case CALC:
-                CalcGame.playCalcGame(scanner);
+                CalcGame.play(scanner);
                 break;
             case GCD:
                 GcdGame.playGcdGame(scanner);
