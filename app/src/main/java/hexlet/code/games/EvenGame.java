@@ -9,19 +9,19 @@ public class EvenGame {
     public static final String TASK = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
     public static void play(Scanner scanner) {
-        var questions = new String[Engine.DEFAULT_ROUNDS_COUNT];
-        var correctAnswers = new String[Engine.DEFAULT_ROUNDS_COUNT];
+        String[][] data = new String[2][Engine.DEFAULT_ROUNDS_COUNT];
 
         for (int i = 0; i < Engine.DEFAULT_ROUNDS_COUNT; i++) {
 
             var randomNumber = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
-            questions[i] = Integer.toString(randomNumber);
+            data[0][i] = Integer.toString(randomNumber);
+
             var correctAnswer = isEven(randomNumber) ? "yes" : "no";
-            correctAnswers[i] = correctAnswer;
+            data[1][i] = correctAnswer;
 
         }
 
-        Engine.runGame(scanner, TASK, questions, correctAnswers);
+        Engine.runGame(scanner, TASK, data);
 
     }
 

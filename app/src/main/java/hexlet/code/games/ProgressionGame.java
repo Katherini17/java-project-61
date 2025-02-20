@@ -16,8 +16,7 @@ public class ProgressionGame {
     public static final Integer MAX_PROGRESSION_LENGTH = 10;
 
     public static void play(Scanner scanner) {
-        var questions = new String[Engine.DEFAULT_ROUNDS_COUNT];
-        var correctAnswers = new String[Engine.DEFAULT_ROUNDS_COUNT];
+        String[][] data = new String[2][Engine.DEFAULT_ROUNDS_COUNT];
 
         for (int i = 0; i < Engine.DEFAULT_ROUNDS_COUNT; i++) {
 
@@ -30,14 +29,14 @@ public class ProgressionGame {
             var elements = getArithmeticProgression(length, firstElement, commonDifference);
 
             var correctHiddenElement = elements[positionOfHiddenElement];
-            correctAnswers[i] = correctHiddenElement;
+            data[1][i] = correctHiddenElement;
 
             elements[positionOfHiddenElement] = "..";
             String question = String.join(" ", elements);
-            questions[i] = question;
+            data[0][i] = question;
         }
 
-        Engine.runGame(scanner, TASK, questions, correctAnswers);
+        Engine.runGame(scanner, TASK, data);
     }
 
     public static String[] getArithmeticProgression(int length, int firstElement, int commonDifference) {

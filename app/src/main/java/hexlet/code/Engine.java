@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Engine {
     public static final Integer DEFAULT_ROUNDS_COUNT = 3;
 
-    public static void runGame(Scanner scanner, String task, String[] questions, String[] correctAnswers) {
+    public static void runGame(Scanner scanner, String task, String[][] data) {
         sendWelcomeMessage();
         var userName = askUserName(scanner);
         sendGreetingByNameMessage(userName);
@@ -14,8 +14,8 @@ public class Engine {
 
         for (int i = 0; i < DEFAULT_ROUNDS_COUNT; i++) {
 
-            var question = questions[i];
-            var correctAnswer = correctAnswers[i];
+            var question = data[0][i];
+            var correctAnswer = data[1][i];
 
             askUser(question);
             var userAnswer = getUserAnswer(scanner);

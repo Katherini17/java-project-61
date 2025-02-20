@@ -10,20 +10,20 @@ public class PrimeGame {
     public static final String TASK = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
     public static void play(Scanner scanner) {
-        var questions = new String[Engine.DEFAULT_ROUNDS_COUNT];
-        var correctAnswers = new String[Engine.DEFAULT_ROUNDS_COUNT];
+        String[][] data = new String[2][Engine.DEFAULT_ROUNDS_COUNT];
 
         for (int i = 0; i < Engine.DEFAULT_ROUNDS_COUNT; i++) {
             var randomNumber = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
 
-            var correctAnswer = isPrimeNumber(randomNumber) ? "yes" : "no";
-            correctAnswers[i] = correctAnswer;
-
             var question = Integer.toString(randomNumber);
-            questions[i] = question;
+            data[0][i] = question;
+
+            var correctAnswer = isPrimeNumber(randomNumber) ? "yes" : "no";
+            data[1][i] = correctAnswer;
+
         }
 
-        Engine.runGame(scanner, TASK, questions, correctAnswers);
+        Engine.runGame(scanner, TASK, data);
     }
 
     public static boolean isPrimeNumber(int number) {

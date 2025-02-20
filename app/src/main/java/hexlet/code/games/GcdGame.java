@@ -9,21 +9,21 @@ public class GcdGame {
     public static final String TASK = "Find the greatest common divisor of given numbers.";
 
     public static void play(Scanner scanner) {
-        var questions = new String[Engine.DEFAULT_ROUNDS_COUNT];
-        var correctAnswers = new String[Engine.DEFAULT_ROUNDS_COUNT];
+        String[][] data = new String[2][Engine.DEFAULT_ROUNDS_COUNT];
 
         for (int i = 0; i < Engine.DEFAULT_ROUNDS_COUNT; i++) {
             var number1 = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
             var number2 = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
 
-            var correctAnswer = Integer.toString(calcGCD(number1, number2));
-            correctAnswers[i] = correctAnswer;
-
             var question = number1 + " " + number2;
-            questions[i] = question;
+            data[0][i] = question;
+
+            var correctAnswer = Integer.toString(calcGCD(number1, number2));
+            data[1][i] = correctAnswer;
+
         }
 
-        Engine.runGame(scanner, TASK, questions, correctAnswers);
+        Engine.runGame(scanner, TASK, data);
     }
 
     public static int calcGCD(int number1, int number2) {

@@ -16,8 +16,7 @@ public class CalcGame {
 
     public static void play(Scanner scanner) {
 
-        var questions = new String[Engine.DEFAULT_ROUNDS_COUNT];
-        var correctAnswers = new String[Engine.DEFAULT_ROUNDS_COUNT];
+        String[][] data = new String[2][Engine.DEFAULT_ROUNDS_COUNT];
 
         for (int i = 0; i < Engine.DEFAULT_ROUNDS_COUNT; i++) {
             var number1 = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
@@ -25,14 +24,15 @@ public class CalcGame {
 
             var operator = generateOperator();
 
-            var correctAnswer = Integer.toString(calcExpression(number1, number2, operator));
-            correctAnswers[i] = correctAnswer;
-
             var question = number1 + " " + operator + " " + number2;
-            questions[i] = question;
+            data[0][i] = question;
+
+            var correctAnswer = Integer.toString(calcExpression(number1, number2, operator));
+            data[1][i] = correctAnswer;
+
         }
 
-        Engine.runGame(scanner, TASK, questions, correctAnswers);
+        Engine.runGame(scanner, TASK, data);
     }
 
     public static char generateOperator() {
