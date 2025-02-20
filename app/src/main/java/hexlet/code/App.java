@@ -21,15 +21,16 @@ public class App {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Please enter the game number and press Enter.");
-        System.out.println(GREET + " - Greet");
-        System.out.println(EVEN + " - Even");
-        System.out.println(CALC + " - Calc");
-        System.out.println(GCD + " - GCD");
-        System.out.println(PROGRESSION + " - Progression");
-        System.out.println(PRIME + " - Prime");
-        System.out.println(EXIT + " - Exit");
-        System.out.print("Your choice: ");
+        System.out.print("""
+            Please enter the game number and press Enter.
+            1 - Greet
+            2 - Even
+            3 - Calc
+            4 - GCD
+            5 - Progression
+            6 - Prime
+            0 - Exit
+            Your choice:\s""");
 
         var choice = scanner.nextLine().trim();
 
