@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Engine {
     public static final Integer DEFAULT_ROUNDS_COUNT = 3;
 
-    public static void play(Scanner scanner, String task, String[] questions, String[] correctAnswers) {
+    public static void runGame(Scanner scanner, String task, String[] questions, String[] correctAnswers) {
         sendWelcomeMessage();
         var userName = askUserName(scanner);
         sendGreetingByNameMessage(userName);
@@ -51,6 +51,13 @@ public class Engine {
 
     public static void sendGreetingByNameMessage(String name) {
         System.out.println("Hello, " + name + "!");
+    }
+
+    public static void greet() {
+        Scanner scanner = new Scanner(System.in);
+        Engine.sendWelcomeMessage();
+        String name = Engine.askUserName(scanner);
+        Engine.sendGreetingByNameMessage(name);
     }
 
     public static void sendCorrectMessage() {
