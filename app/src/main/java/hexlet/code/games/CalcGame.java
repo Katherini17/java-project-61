@@ -19,15 +19,15 @@ public class CalcGame {
         String[][] data = new String[2][Engine.DEFAULT_ROUNDS_COUNT];
 
         for (int i = 0; i < Engine.DEFAULT_ROUNDS_COUNT; i++) {
-            var number1 = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
-            var number2 = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
+            int number1 = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
+            int number2 = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
 
-            var operator = generateOperator();
+            char operator = generateOperator();
 
-            var question = number1 + " " + operator + " " + number2;
+            String question = number1 + " " + operator + " " + number2;
             data[0][i] = question;
 
-            var correctAnswer = Integer.toString(calcExpression(number1, number2, operator));
+            String correctAnswer = Integer.toString(calcExpression(number1, number2, operator));
             data[1][i] = correctAnswer;
 
         }
@@ -36,7 +36,7 @@ public class CalcGame {
     }
 
     public static char generateOperator() {
-        var generatedNumber = Engine.generateRandomNumber(OPERATORS_COUNT);
+        int generatedNumber = Engine.generateRandomNumber(OPERATORS_COUNT);
         switch (generatedNumber) {
             case 1:
                 return ADDITION_SYMBOL;

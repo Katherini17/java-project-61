@@ -12,13 +12,13 @@ public class GcdGame {
         String[][] data = new String[2][Engine.DEFAULT_ROUNDS_COUNT];
 
         for (int i = 0; i < Engine.DEFAULT_ROUNDS_COUNT; i++) {
-            var number1 = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
-            var number2 = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
+            int number1 = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
+            int number2 = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
 
-            var question = number1 + " " + number2;
+            String question = number1 + " " + number2;
             data[0][i] = question;
 
-            var correctAnswer = Integer.toString(calcGCD(number1, number2));
+            String correctAnswer = Integer.toString(calcGCD(number1, number2));
             data[1][i] = correctAnswer;
 
         }
@@ -27,11 +27,11 @@ public class GcdGame {
     }
 
     public static int calcGCD(int number1, int number2) {
-        var maxNumber = Math.max(number1, number2);
-        var minNumber = Math.min(number1, number2);
+        int maxNumber = Math.max(number1, number2);
+        int minNumber = Math.min(number1, number2);
 
         while (minNumber != 0) {
-            var remainder = maxNumber % minNumber;
+            int remainder = maxNumber % minNumber;
             maxNumber = minNumber;
             minNumber = remainder;
         }

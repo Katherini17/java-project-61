@@ -13,12 +13,12 @@ public class PrimeGame {
         String[][] data = new String[2][Engine.DEFAULT_ROUNDS_COUNT];
 
         for (int i = 0; i < Engine.DEFAULT_ROUNDS_COUNT; i++) {
-            var randomNumber = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
+            int randomNumber = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
 
-            var question = Integer.toString(randomNumber);
+            String question = Integer.toString(randomNumber);
             data[0][i] = question;
 
-            var correctAnswer = isPrimeNumber(randomNumber) ? "yes" : "no";
+            String correctAnswer = isPrimeNumber(randomNumber) ? "yes" : "no";
             data[1][i] = correctAnswer;
 
         }
@@ -32,7 +32,7 @@ public class PrimeGame {
             return false;
         }
 
-        var rootOfNumber = (int) Math.sqrt(number);
+        int rootOfNumber = (int) Math.sqrt(number);
         for (int i = 2; i <= rootOfNumber; i++) {
             if (number % i == 0) {
                 return false;

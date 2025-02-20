@@ -13,10 +13,10 @@ public class EvenGame {
 
         for (int i = 0; i < Engine.DEFAULT_ROUNDS_COUNT; i++) {
 
-            var randomNumber = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
+            int randomNumber = Engine.generateRandomNumber(MAX_RANDOM_NUMBER);
             data[0][i] = Integer.toString(randomNumber);
 
-            var correctAnswer = isEven(randomNumber) ? "yes" : "no";
+            String correctAnswer = isEven(randomNumber) ? "yes" : "no";
             data[1][i] = correctAnswer;
 
         }

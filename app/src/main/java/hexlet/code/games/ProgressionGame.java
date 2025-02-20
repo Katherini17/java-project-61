@@ -20,15 +20,15 @@ public class ProgressionGame {
 
         for (int i = 0; i < Engine.DEFAULT_ROUNDS_COUNT; i++) {
 
-            var length = Engine.generateElementInRange(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
-            var commonDifference = Engine.generateElementInRange(MIN_COMMON_DIFFERENCE, MAX_COMMON_DIFFERENCE);
-            var firstElement = Engine.generateElementInRange(MIN_FIRST_ELEMENT, MAX_FIRST_ELEMENT);
+            int length = Engine.generateElementInRange(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
+            int commonDifference = Engine.generateElementInRange(MIN_COMMON_DIFFERENCE, MAX_COMMON_DIFFERENCE);
+            int firstElement = Engine.generateElementInRange(MIN_FIRST_ELEMENT, MAX_FIRST_ELEMENT);
 
-            var positionOfHiddenElement = Engine.generateRandomNumber(length) - 1;
+            int positionOfHiddenElement = Engine.generateRandomNumber(length) - 1;
 
-            var elements = getArithmeticProgression(length, firstElement, commonDifference);
+            String[] elements = getArithmeticProgression(length, firstElement, commonDifference);
 
-            var correctHiddenElement = elements[positionOfHiddenElement];
+            String correctHiddenElement = elements[positionOfHiddenElement];
             data[1][i] = correctHiddenElement;
 
             elements[positionOfHiddenElement] = "..";
@@ -40,8 +40,8 @@ public class ProgressionGame {
     }
 
     public static String[] getArithmeticProgression(int length, int firstElement, int commonDifference) {
-        var elements = new String[length];
-        var nextElement = firstElement;
+        String[] elements = new String[length];
+        int nextElement = firstElement;
         for (int i = 0; i < length; i++) {
             elements[i] = Integer.toString(nextElement);
             nextElement += commonDifference;

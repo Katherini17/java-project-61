@@ -7,20 +7,20 @@ public class Engine {
 
     public static void runGame(Scanner scanner, String task, String[][] data) {
         sendWelcomeMessage();
-        var userName = askUserName(scanner);
+        String userName = askUserName(scanner);
         sendGreetingByNameMessage(userName);
 
         Engine.printTask(task);
 
         for (int i = 0; i < DEFAULT_ROUNDS_COUNT; i++) {
 
-            var question = data[0][i];
-            var correctAnswer = data[1][i];
+            String question = data[0][i];
+            String correctAnswer = data[1][i];
 
             askUser(question);
-            var userAnswer = getUserAnswer(scanner);
+            String userAnswer = getUserAnswer(scanner);
 
-            var isCorrectAnswer = checkAnswer(userAnswer, correctAnswer);
+            boolean isCorrectAnswer = checkAnswer(userAnswer, correctAnswer);
 
             if (isCorrectAnswer) {
                 sendCorrectMessage();
@@ -28,7 +28,7 @@ public class Engine {
                 sendIncorrectMessage(userName, userAnswer, correctAnswer);
             }
 
-            var isFinalRound = i == DEFAULT_ROUNDS_COUNT - 1;
+            boolean isFinalRound = i == DEFAULT_ROUNDS_COUNT - 1;
             if (!isCorrectAnswer) {
                 return;
             }
@@ -41,7 +41,7 @@ public class Engine {
 
     public static String askUserName(Scanner scanner) {
         System.out.print("May I have your name? ");
-        var name = scanner.nextLine();
+        String name = scanner.nextLine();
         return name;
     }
     public static void sendWelcomeMessage() {
@@ -95,7 +95,7 @@ public class Engine {
     }
 
     public static int generateElementInRange(int min, int max) {
-        var range = max - min + 1;
+        int range = max - min + 1;
         return Engine.generateRandomNumber(range) + (max - range);
     }
 

@@ -32,7 +32,7 @@ public class App {
             0 - Exit
             Your choice:\s""");
 
-        var choice = scanner.nextLine().trim();
+        String choice = scanner.nextLine().trim();
 
         switch (choice) {
             case EXIT:
