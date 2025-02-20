@@ -8,7 +8,7 @@ public class GcdGame {
     public static final Integer MAX_RANDOM_NUMBER = 30;
     public static final String TASK = "Find the greatest common divisor of given numbers.";
 
-    public static void playGcdGame(Scanner scanner) {
+    public static void play(Scanner scanner) {
         var questions = new String[Engine.DEFAULT_ROUNDS_COUNT];
         var correctAnswers = new String[Engine.DEFAULT_ROUNDS_COUNT];
 
@@ -23,7 +23,7 @@ public class GcdGame {
             questions[i] = question;
         }
 
-        Engine.play(scanner, TASK, questions, correctAnswers);
+        Engine.runGame(scanner, TASK, questions, correctAnswers);
     }
 
     public static int calcGCD(int number1, int number2) {

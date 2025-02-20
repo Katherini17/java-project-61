@@ -14,7 +14,7 @@ public class CalcGame {
     private static final char MULTIPLICATION_SYMBOL = '*';
     public static final String TASK = "What is the result of the expression?";
 
-    public static void playCalcGame(Scanner scanner) {
+    public static void play(Scanner scanner) {
 
         var questions = new String[Engine.DEFAULT_ROUNDS_COUNT];
         var correctAnswers = new String[Engine.DEFAULT_ROUNDS_COUNT];
@@ -32,7 +32,7 @@ public class CalcGame {
             questions[i] = question;
         }
 
-        Engine.play(scanner, TASK, questions, correctAnswers);
+        Engine.runGame(scanner, TASK, questions, correctAnswers);
     }
 
     public static char generateOperator() {

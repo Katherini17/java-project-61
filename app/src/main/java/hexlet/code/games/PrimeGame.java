@@ -9,7 +9,7 @@ public class PrimeGame {
     public static final Integer MAX_RANDOM_NUMBER = 53;
     public static final String TASK = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-    public static void playPrimeGame(Scanner scanner) {
+    public static void play(Scanner scanner) {
         var questions = new String[Engine.DEFAULT_ROUNDS_COUNT];
         var correctAnswers = new String[Engine.DEFAULT_ROUNDS_COUNT];
 
@@ -23,7 +23,7 @@ public class PrimeGame {
             questions[i] = question;
         }
 
-        Engine.play(scanner, TASK, questions, correctAnswers);
+        Engine.runGame(scanner, TASK, questions, correctAnswers);
     }
 
     public static boolean isPrimeNumber(int number) {

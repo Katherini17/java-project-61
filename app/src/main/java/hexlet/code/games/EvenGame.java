@@ -8,7 +8,7 @@ public class EvenGame {
     public static final Integer MAX_RANDOM_NUMBER = 1000;
     public static final String TASK = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
-    public static void playEvenGame(Scanner scanner) {
+    public static void play(Scanner scanner) {
         var questions = new String[Engine.DEFAULT_ROUNDS_COUNT];
         var correctAnswers = new String[Engine.DEFAULT_ROUNDS_COUNT];
 
@@ -21,7 +21,7 @@ public class EvenGame {
 
         }
 
-        Engine.play(scanner, TASK, questions, correctAnswers);
+        Engine.runGame(scanner, TASK, questions, correctAnswers);
 
     }
 

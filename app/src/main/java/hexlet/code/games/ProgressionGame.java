@@ -15,7 +15,7 @@ public class ProgressionGame {
     public static final Integer MIN_PROGRESSION_LENGTH = 5;
     public static final Integer MAX_PROGRESSION_LENGTH = 10;
 
-    public static void playProgressionGame(Scanner scanner) {
+    public static void play(Scanner scanner) {
         var questions = new String[Engine.DEFAULT_ROUNDS_COUNT];
         var correctAnswers = new String[Engine.DEFAULT_ROUNDS_COUNT];
 
@@ -37,7 +37,7 @@ public class ProgressionGame {
             questions[i] = question;
         }
 
-        Engine.play(scanner, TASK, questions, correctAnswers);
+        Engine.runGame(scanner, TASK, questions, correctAnswers);
     }
 
     public static String[] getArithmeticProgression(int length, int firstElement, int commonDifference) {
