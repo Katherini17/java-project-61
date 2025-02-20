@@ -36,6 +36,6 @@ public class GcdGame {
         if (remainder == 0) {
             return minNumber;
         }
-       return calcGCD(minNumber, remainder);
+        return calcGCD(minNumber, remainder);
     }
 }

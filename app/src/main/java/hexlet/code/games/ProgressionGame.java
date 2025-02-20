@@ -36,7 +36,8 @@ public class ProgressionGame {
             data[1][i] = correctHiddenElement;
 
             elements[positionOfHiddenElement] = "..";
-            String question = String.join(" ", elements);
+
+            String question = getStringProgression(elements);
             data[0][i] = question;
         }
 
@@ -51,6 +52,18 @@ public class ProgressionGame {
             nextElement += commonDifference;
         }
         return elements;
+    }
+
+    public static String getStringProgression(String[] elements) {
+        StringBuilder progression = new StringBuilder();
+
+        for (int i = 0; i < elements.length; i++) {
+            progression.append(elements[i]);
+            if (i != elements.length - 1) {
+                progression.append(" ");
+            }
+        }
+        return progression.toString();
     }
 
 }
