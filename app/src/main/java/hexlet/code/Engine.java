@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
@@ -97,8 +98,10 @@ public class Engine {
     }
 
     public static int generateElementInRange(int min, int max) {
+        Random random = new Random();
+
         int range = max - min + 1;
-        return Engine.generateRandomNumber(range) + (max - range);
+        return random.nextInt(range) + min;
     }
 
 }

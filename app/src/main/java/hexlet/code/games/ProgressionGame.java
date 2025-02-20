@@ -2,6 +2,8 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
+import java.util.Random;
+
 public class ProgressionGame {
     public static final String TASK = "What number is missing in the progression?";
 
@@ -15,6 +17,8 @@ public class ProgressionGame {
     public static final Integer MAX_PROGRESSION_LENGTH = 10;
 
     public static void play() {
+        Random random = new Random();
+
         String[][] data = new String[2][Engine.DEFAULT_ROUNDS_COUNT];
 
         for (int i = 0; i < Engine.DEFAULT_ROUNDS_COUNT; i++) {
@@ -23,7 +27,7 @@ public class ProgressionGame {
             int commonDifference = Engine.generateElementInRange(MIN_COMMON_DIFFERENCE, MAX_COMMON_DIFFERENCE);
             int firstElement = Engine.generateElementInRange(MIN_FIRST_ELEMENT, MAX_FIRST_ELEMENT);
 
-            int positionOfHiddenElement = Engine.generateRandomNumber(length) - 1;
+            int positionOfHiddenElement = random.nextInt(length);
 
             String[] elements = getArithmeticProgression(length, firstElement, commonDifference);
 
