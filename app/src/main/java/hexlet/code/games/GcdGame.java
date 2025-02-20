@@ -31,12 +31,11 @@ public class GcdGame {
         int maxNumber = Math.max(number1, number2);
         int minNumber = Math.min(number1, number2);
 
-        while (minNumber != 0) {
-            int remainder = maxNumber % minNumber;
-            maxNumber = minNumber;
-            minNumber = remainder;
-        }
+        int remainder = maxNumber % minNumber;
 
-        return maxNumber;
+        if (remainder == 0) {
+            return minNumber;
+        }
+       return calcGCD(minNumber, remainder);
     }
 }
