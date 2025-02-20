@@ -2,8 +2,6 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-import java.util.Scanner;
-
 public class CalcGame {
 
     public static final Integer MAX_RANDOM_NUMBER = 30;
@@ -14,7 +12,7 @@ public class CalcGame {
     private static final char MULTIPLICATION_SYMBOL = '*';
     public static final String TASK = "What is the result of the expression?";
 
-    public static void play(Scanner scanner) {
+    public static void play() {
 
         String[][] data = new String[2][Engine.DEFAULT_ROUNDS_COUNT];
 
@@ -32,7 +30,7 @@ public class CalcGame {
 
         }
 
-        Engine.runGame(scanner, TASK, data);
+        Engine.runGame(TASK, data);
     }
 
     public static char generateOperator() {

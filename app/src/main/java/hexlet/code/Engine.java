@@ -5,9 +5,10 @@ import java.util.Scanner;
 public class Engine {
     public static final Integer DEFAULT_ROUNDS_COUNT = 3;
 
-    public static void runGame(Scanner scanner, String task, String[][] data) {
+    public static void runGame(String task, String[][] data) {
+        Scanner scanner = new Scanner(System.in);
         sendWelcomeMessage();
-        String userName = askUserName(scanner);
+        String userName = askUserName();
         sendGreetingByNameMessage(userName);
 
         Engine.printTask(task);
@@ -18,7 +19,7 @@ public class Engine {
             String correctAnswer = data[1][i];
 
             askUser(question);
-            String userAnswer = getUserAnswer(scanner);
+            String userAnswer = getUserAnswer();
 
             boolean isCorrectAnswer = checkAnswer(userAnswer, correctAnswer);
 
@@ -39,7 +40,8 @@ public class Engine {
 
     }
 
-    public static String askUserName(Scanner scanner) {
+    public static String askUserName() {
+        Scanner scanner = new Scanner(System.in);
         System.out.print("May I have your name? ");
         String name = scanner.nextLine();
         return name;
@@ -54,9 +56,8 @@ public class Engine {
     }
 
     public static void greet() {
-        Scanner scanner = new Scanner(System.in);
         Engine.sendWelcomeMessage();
-        String name = Engine.askUserName(scanner);
+        String name = Engine.askUserName();
         Engine.sendGreetingByNameMessage(name);
     }
 
@@ -81,7 +82,8 @@ public class Engine {
         System.out.println(task);
     }
 
-    public static String getUserAnswer(Scanner scanner) {
+    public static String getUserAnswer() {
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Your answer: ");
         return scanner.nextLine();
     }

@@ -41,19 +41,19 @@ public class App {
                 Engine.greet();
                 break;
             case EVEN:
-                EvenGame.play(scanner);
+                EvenGame.play();
                 break;
             case CALC:
-                CalcGame.play(scanner);
+                CalcGame.play();
                 break;
             case GCD:
-                GcdGame.play(scanner);
+                GcdGame.play();
                 break;
             case PROGRESSION:
-                ProgressionGame.play(scanner);
+                ProgressionGame.play();
                 break;
             case PRIME:
-                PrimeGame.play(scanner);
+                PrimeGame.play();
                 break;
             default:
                 System.out.println("Incorrect choice");
