@@ -93,17 +93,6 @@ public class Engine {
         return userAnswer.equals(correctAnswer);
     }
 
-    public static int generateRandomNumber(int limit) {
-        return (int) (Math.random() * limit) + 1;
-    }
-
-    public static int generateElementInRange(int min, int max) {
-        Random random = new Random();
-
-        int range = max - min + 1;
-        return random.nextInt(range) + min;
-    }
-
 }
 
 

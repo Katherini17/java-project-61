@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.RandomUtil;
 
 import java.util.Random;
 
@@ -23,9 +24,9 @@ public class ProgressionGame {
 
         for (int i = 0; i < Engine.DEFAULT_ROUNDS_COUNT; i++) {
 
-            int length = Engine.generateElementInRange(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
-            int commonDifference = Engine.generateElementInRange(MIN_COMMON_DIFFERENCE, MAX_COMMON_DIFFERENCE);
-            int firstElement = Engine.generateElementInRange(MIN_FIRST_ELEMENT, MAX_FIRST_ELEMENT);
+            int length = RandomUtil.generateElementInRange(MIN_PROGRESSION_LENGTH, MAX_PROGRESSION_LENGTH);
+            int commonDifference = RandomUtil.generateElementInRange(MIN_COMMON_DIFFERENCE, MAX_COMMON_DIFFERENCE);
+            int firstElement = RandomUtil.generateElementInRange(MIN_FIRST_ELEMENT, MAX_FIRST_ELEMENT);
 
             int positionOfHiddenElement = random.nextInt(length);
 
