@@ -6,7 +6,6 @@ public class Engine {
     public static final Integer DEFAULT_ROUNDS_COUNT = 3;
 
     public static void runGame(String task, String[][] data) {
-        Scanner scanner = new Scanner(System.in);
         sendWelcomeMessage();
         String userName = askUserName();
         sendGreetingByNameMessage(userName);
