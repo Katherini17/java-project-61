@@ -20,19 +20,14 @@ public class Engine {
             askUser(question);
             String userAnswer = getUserAnswer();
 
-            boolean isCorrectAnswer = checkAnswer(userAnswer, correctAnswer);
-
-            if (isCorrectAnswer) {
+            if (checkAnswer(userAnswer, correctAnswer)) {
                 sendCorrectMessage();
             } else {
                 sendIncorrectMessage(userName, userAnswer, correctAnswer);
-            }
-
-            boolean isFinalRound = i == DEFAULT_ROUNDS_COUNT - 1;
-            if (!isCorrectAnswer) {
                 return;
-            }
-            if (isFinalRound) {
+            };
+
+            if (i == DEFAULT_ROUNDS_COUNT - 1) {
                 congratulate(userName);
             }
         }
