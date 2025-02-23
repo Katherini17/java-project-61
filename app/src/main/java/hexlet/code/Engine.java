@@ -25,7 +25,7 @@ public class Engine {
             } else {
                 sendIncorrectMessage(userName, userAnswer, correctAnswer);
                 return;
-            };
+            }
 
             if (i == DEFAULT_ROUNDS_COUNT - 1) {
                 congratulate(userName);
