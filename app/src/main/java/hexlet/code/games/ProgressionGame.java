@@ -18,6 +18,11 @@ public class ProgressionGame {
     public static final Integer MAX_PROGRESSION_LENGTH = 10;
 
     public static void play() {
+        String[][] data = generateData();
+        Engine.runGame(TASK, data);
+    }
+
+    public static String[][] generateData() {
         Random random = new Random();
 
         String[][] data = new String[2][Engine.DEFAULT_ROUNDS_COUNT];
@@ -40,8 +45,7 @@ public class ProgressionGame {
             String question = getStringProgression(elements);
             data[0][i] = question;
         }
-
-        Engine.runGame(TASK, data);
+        return data;
     }
 
     public static String[] getArithmeticProgression(int length, int firstElement, int commonDifference) {

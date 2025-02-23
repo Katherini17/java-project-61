@@ -10,6 +10,12 @@ public class PrimeGame {
     public static final String TASK = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
     public static void play() {
+        String[][] data = generateData();
+        Engine.runGame(TASK, data);
+    }
+
+    public static String[][] generateData() {
+
         Random random = new Random();
 
         String[][] data = new String[2][Engine.DEFAULT_ROUNDS_COUNT];
@@ -25,7 +31,7 @@ public class PrimeGame {
 
         }
 
-        Engine.runGame(TASK, data);
+        return data;
     }
 
     public static boolean isPrimeNumber(int number) {

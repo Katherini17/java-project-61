@@ -9,7 +9,13 @@ public class GcdGame {
     public static final String TASK = "Find the greatest common divisor of given numbers.";
 
     public static void play() {
+        String[][] data = generateData();
+        Engine.runGame(TASK, data);
+    }
+
+    public static String[][] generateData() {
         Random random = new Random();
+
         String[][] data = new String[2][Engine.DEFAULT_ROUNDS_COUNT];
 
         for (int i = 0; i < Engine.DEFAULT_ROUNDS_COUNT; i++) {
@@ -21,10 +27,9 @@ public class GcdGame {
 
             String correctAnswer = Integer.toString(calcGCD(number1, number2));
             data[1][i] = correctAnswer;
-
         }
 
-        Engine.runGame(TASK, data);
+        return data;
     }
 
     public static int calcGCD(int number1, int number2) {

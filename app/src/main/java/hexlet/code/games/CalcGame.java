@@ -14,6 +14,11 @@ public class CalcGame {
     public static final String TASK = "What is the result of the expression?";
 
     public static void play() {
+        String[][] data = generateData();
+        Engine.runGame(TASK, data);
+    }
+
+    public static String[][] generateData() {
         Random random = new Random();
 
         String[][] data = new String[2][Engine.DEFAULT_ROUNDS_COUNT];
@@ -32,7 +37,7 @@ public class CalcGame {
 
         }
 
-        Engine.runGame(TASK, data);
+        return data;
     }
 
     public static char generateOperator() {

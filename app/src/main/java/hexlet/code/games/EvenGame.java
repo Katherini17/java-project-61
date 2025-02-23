@@ -10,6 +10,11 @@ public class EvenGame {
     public static final String TASK = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
     public static void play() {
+        String[][] data = generateData();
+        Engine.runGame(TASK, data);
+    }
+
+    public static String[][] generateData() {
         Random random = new Random();
 
         String[][] data = new String[2][Engine.DEFAULT_ROUNDS_COUNT];
@@ -23,8 +28,7 @@ public class EvenGame {
 
         }
 
-        Engine.runGame(TASK, data);
-
+        return data;
     }
 
     public static boolean isEven(int number) {
