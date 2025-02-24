@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Engine {
     public static final Integer DEFAULT_ROUNDS_COUNT = 3;
-    public static String currentUserName;
+    private static String currentUserName;
 
     public static void runGame(String task, String[][] data) {
         greet();
@@ -21,12 +21,12 @@ public class Engine {
             if (checkAnswer(userAnswer, correctAnswer)) {
                 sendCorrectMessage();
             } else {
-                sendIncorrectMessage(currentUserName, userAnswer, correctAnswer);
+                sendIncorrectMessage(userAnswer, correctAnswer);
                 return;
             }
 
             if (i == DEFAULT_ROUNDS_COUNT - 1) {
-                congratulate(currentUserName);
+                congratulate();
             }
         }
 
@@ -47,13 +47,13 @@ public class Engine {
         System.out.println("Correct!");
     }
 
-    public static void sendIncorrectMessage(String name, String userAnswer, String correctAnswer) {
+    public static void sendIncorrectMessage(String userAnswer, String correctAnswer) {
         System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-        System.out.println("Let's try again, " + name + "!");
+        System.out.println("Let's try again, " + currentUserName + "!");
     }
 
-    public static void congratulate(String name) {
-        System.out.println("Congratulations, " + name + "!");
+    public static void congratulate() {
+        System.out.println("Congratulations, " + currentUserName + "!");
     }
 
     public static void askUser(String question) {
