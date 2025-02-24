@@ -4,13 +4,11 @@ import java.util.Scanner;
 
 public class Engine {
     public static final Integer DEFAULT_ROUNDS_COUNT = 3;
+    public static String currentUserName;
 
     public static void runGame(String task, String[][] data) {
-        sendWelcomeMessage();
-        String userName = askUserName();
-        sendGreetingByNameMessage(userName);
-
-        Engine.printTask(task);
+        greet();
+        printTask(task);
 
         for (int i = 0; i < DEFAULT_ROUNDS_COUNT; i++) {
 
@@ -23,36 +21,26 @@ public class Engine {
             if (checkAnswer(userAnswer, correctAnswer)) {
                 sendCorrectMessage();
             } else {
-                sendIncorrectMessage(userName, userAnswer, correctAnswer);
+                sendIncorrectMessage(currentUserName, userAnswer, correctAnswer);
                 return;
             }
 
             if (i == DEFAULT_ROUNDS_COUNT - 1) {
-                congratulate(userName);
+                congratulate(currentUserName);
             }
         }
 
     }
 
-    public static String askUserName() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("May I have your name? ");
-        String name = scanner.nextLine();
-        return name;
-    }
-    public static void sendWelcomeMessage() {
-        System.out.println();
-        System.out.println("Welcome to the Brain Games!");
-    }
-
-    public static void sendGreetingByNameMessage(String name) {
-        System.out.println("Hello, " + name + "!");
-    }
-
     public static void greet() {
-        Engine.sendWelcomeMessage();
-        String name = Engine.askUserName();
-        Engine.sendGreetingByNameMessage(name);
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("""
+
+            Welcome to the Brain Games!
+            May I have your name?\s""");
+        currentUserName = scanner.nextLine();
+        System.out.println("Hello, " + currentUserName + "!");
     }
 
     public static void sendCorrectMessage() {
